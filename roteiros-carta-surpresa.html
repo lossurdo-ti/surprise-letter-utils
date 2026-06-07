@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiros — Carta Surpresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #C8476A;
+    --rose-light: #E8728E;
+    --blush: #F9EEF1;
+    --blush-mid: #F0D4DC;
+    --cream: #FDF8F5;
+    --ink: #1C1018;
+    --ink-muted: #6B5460;
+    --gold: #C9934A;
+    --border: rgba(200, 71, 106, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1C1018 0%, #3D1F2E 60%, #5C2840 100%);
+    padding: 56px 40px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(200,71,106,0.25) 0%, transparent 70%);
+  }
+
+  header .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose-light);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.15;
+    position: relative;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--rose-light);
+  }
+
+  header p {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    font-weight: 300;
+    position: relative;
+  }
+
+  /* NAV INDEX */
+  .index {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .index a {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--rose);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--blush);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .index a:hover {
+    background: var(--rose);
+    color: white;
+    border-color: var(--rose);
+  }
+
+  /* MAIN */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 24px rgba(200,71,106,0.06);
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, var(--rose) 0%, #A33459 100%);
+    padding: 28px 32px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .card-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.2);
+    line-height: 1;
+    min-width: 48px;
+  }
+
+  .card-title-wrap {}
+
+  .card-title-wrap .label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 6px;
+  }
+
+  .card-title-wrap h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+  }
+
+  .card-title-wrap .subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+  }
+
+  .card-body {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* SECTION WITHIN CARD */
+  .section {}
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .icon-hook { background: #FFF0E8; }
+  .icon-thumb { background: #F0F8FF; }
+  .icon-script { background: #F0FFF4; }
+  .icon-loop { background: #FFF8E8; }
+  .icon-tip { background: #F8F0FF; }
+
+  .section-label h3 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* HOOK BOX */
+  .hook-box {
+    background: linear-gradient(135deg, #FFF0F3 0%, #FDE8ED 100%);
+    border: 1px solid var(--blush-mid);
+    border-left: 4px solid var(--rose);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .hook-box .hook-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--rose);
+    line-height: 1.4;
+  }
+
+  .hook-box .hook-note {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  /* THUMBNAIL BOX */
+  .thumb-box {
+    background: #F8FAFF;
+    border: 1px solid #E0EAFF;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .thumb-visual {
+    width: 60px;
+    height: 90px;
+    background: linear-gradient(160deg, #C8476A 0%, #7A1F3C 100%);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thumb-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.4));
+  }
+
+  .thumb-desc {
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .thumb-desc strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #4A6CF7;
+    margin-bottom: 6px;
+  }
+
+  /* SCRIPT */
+  .script-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .script-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+  }
+
+  .script-step:not(:last-child) .step-content {
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .step-time {
+    padding: 14px 16px 14px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .step-time .time {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--rose);
+    background: var(--blush);
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .step-content {
+    padding: 14px 0 14px 20px;
+    border-left: 2px solid var(--blush-mid);
+    position: relative;
+  }
+
+  .step-content::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--rose);
+  }
+
+  .step-content .action {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .step-content .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--rose);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* LOOP BOX */
+  .loop-box {
+    background: linear-gradient(135deg, #FFFBEE 0%, #FFF3CC 100%);
+    border: 1px solid #F0D980;
+    border-left: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .loop-box p {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* TIP BOX */
+  .tip-box {
+    background: #FAF4FF;
+    border: 1px solid #E8D8FF;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: #4A2E6B;
+    line-height: 1.6;
+  }
+
+  .tip-box strong {
+    color: #6B2FBB;
+  }
+
+  /* COMPARISON SPECIAL */
+  .comparison-note {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    border: 1px solid #A5D6A7;
+    border-left: 4px solid #43A047;
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .comparison-note .cn-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2E7D32;
+    margin-bottom: 8px;
+  }
+
+  .comparison-note p {
+    font-size: 14px;
+    color: #1B5E20;
+    line-height: 1.6;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blush-mid), transparent);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--ink-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+
+  footer strong {
+    color: var(--rose);
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 40px 24px 36px; }
+    .card-body { padding: 24px; }
+    .card-header { padding: 22px 24px 20px; }
+    .script-step { grid-template-columns: 64px 1fr; }
+    .index { padding: 16px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Carta Surpresa · Estratégia de Conteúdo</div>
+  <h1>Roteiros para <em>TikTok</em><br>Dia dos Namorados 2026</h1>
+  <p>6 vídeos com hook, thumbnail, roteiro e loop de retenção</p>
+</header>
+
+<div class="index">
+  <a href="#v1">1. Reação ao Vivo</a>
+  <a href="#v2">2. IA Escreveu Melhor</a>
+  <a href="#v3">3. Pra Quem Não Sabe</a>
+  <a href="#v4">4. Antes/Depois</a>
+  <a href="#v5">5. Quanto Custa</a>
+  <a href="#v6">6. Stitch Bait</a>
+</div>
+
+<main>
+
+  <!-- VÍDEO 1 -->
+  <div class="card" id="v1">
+    <div class="card-header">
+      <div class="card-number">01</div>
+      <div class="card-title-wrap">
+        <div class="label">Formato · Reação Emocional</div>
+        <h2>"Ela gerou uma carta pra mim sem eu saber"</h2>
+        <div class="subtitle">Potencial mais alto · Conteúdo autêntico · Casal real</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-hook">🎣</div>
+          <h3>Hook — primeiros 3 segundos</h3>
+        </div>
+        <div class="hook-box">
+          <div class="hook-text">"Minha esposa fez uma coisa pra mim hoje e eu não esperava isso…"</div>
+          <div class="hook-note">📸 Câmera no rosto dele já com expressão curiosa/emocionada. Não mostre a carta ainda.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-thumb">🖼️</div>
+          <h3>Thumbnail ideal</h3>
+        </div>
+        <div class="thumb-box">
+          <div class="thumb-visual">😮<br><span style="font-size:9px;position:relative;z-index:1">rosto</span></div>
+          <div class="thumb-desc">
+            <strong>Composição</strong>
+            Rosto dele em close, expressão de surpresa genuína ou emocionado. Texto sobreposto em branco: <em>"ela fez isso sem me avisar 💌"</em>. Fundo desfocado com carta na mão. Evite thumbnails muito produzidas — o natural converte melhor nesse formato.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-script">🎬</div>
+          <h3>Roteiro</h3>
+        </div>
+        <div class="script-steps">
+          <div class="script-step">
+            <div class="step-time"><span class="time">0s – 3s</span></div>
+            <div class="step-content">
+              <div class="action">Hook falado</div>
+              <p><span class="quote">"Minha esposa fez uma coisa pra mim hoje e eu não esperava isso…"</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">3s – 10s</span></div>
+            <div class="step-content">
+              <div class="action">Contexto rápido</div>
+              <p>Ela entra no frame ou aparece gravando a tela: <span class="quote">"Usei uma IA pra escrever uma carta personalizada pra ele — coloquei detalhes que só nós dois sabemos."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">10s – 25s</span></div>
+            <div class="step-content">
+              <div class="action">Leitura da carta</div>
+              <p>Ela lê a carta em voz alta enquanto a câmera alterna entre ela e a expressão dele. Não corte aqui — deixe o silêncio e a emoção respirarem.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">25s – 35s</span></div>
+            <div class="step-content">
+              <div class="action">Reação + CTA</div>
+              <p>Reação genuína dele. Ela fala: <span class="quote">"Se você também quer surpreender alguém, link na bio — é o Carta Surpresa."</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-loop">🔁</div>
+          <h3>Loop de retenção</h3>
+        </div>
+        <div class="loop-box">
+          <p>Termine com ela mostrando a tela do produto por 2 segundos sem falar nada — só a carta na tela. Quem quiser ler o conteúdo completo vai dar replay. Alternativamente: corte antes da reação final e coloque um texto <em>"a reação dele →"</em> que leva o segundo ao próximo loop natural.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VÍDEO 2 -->
+  <div class="card" id="v2">
+    <div class="card-header">
+      <div class="card-number">02</div>
+      <div class="card-title-wrap">
+        <div class="label">Formato · Demonstração + Surpresa</div>
+        <h2>"IA escreveu melhor do que eu escreveria"</h2>
+        <div class="subtitle">Screen recording + câmera · Foco no resultado</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-hook">🎣</div>
+          <h3>Hook — primeiros 3 segundos</h3>
+        </div>
+        <div class="hook-box">
+          <div class="hook-text">"Testei uma IA pra escrever carta de Dia dos Namorados e fiquei sem palavras…"</div>
+          <div class="hook-note">📸 Câmera no rosto dela com expressão levemente incrédula. Corte imediato para a tela do produto.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-thumb">🖼️</div>
+          <h3>Thumbnail ideal</h3>
+        </div>
+        <div class="thumb-box">
+          <div class="thumb-visual">😯</div>
+          <div class="thumb-desc">
+            <strong>Composição</strong>
+            Ela olhando para o celular com a boca levemente aberta. Texto: <em>"escreve melhor que eu 😭"</em>. Se possível, mostrar um fragmento da carta em destaque no canto inferior — cria curiosidade visual imediata.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-script">🎬</div>
+          <h3>Roteiro</h3>
+        </div>
+        <div class="script-steps">
+          <div class="script-step">
+            <div class="step-time"><span class="time">0s – 3s</span></div>
+            <div class="step-content">
+              <div class="action">Hook falado</div>
+              <p><span class="quote">"Testei uma IA pra escrever carta de Dia dos Namorados e fiquei sem palavras…"</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">3s – 18s</span></div>
+            <div class="step-content">
+              <div class="action">Screen recording acelerado</div>
+              <p>Mostra o preenchimento do formulário em velocidade 2x, com texto na tela: <em>"coloquei detalhes reais de nós dois"</em>. Não precisa mostrar tudo — 3 ou 4 campos são suficientes para comunicar o processo.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">18s – 30s</span></div>
+            <div class="step-content">
+              <div class="action">Revelação da carta</div>
+              <p>Volta para a câmera. Ela lê 2-3 trechos mais bonitos da carta, pausando com expressão de surpresa genuína.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">30s – 38s</span></div>
+            <div class="step-content">
+              <div class="action">CTA</div>
+              <p><span class="quote">"Juro que não escrevo assim nem tentando. Link na bio — cartasurpresa.com.br"</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-loop">🔁</div>
+          <h3>Loop de retenção</h3>
+        </div>
+        <div class="loop-box">
+          <p>No final, congelar na tela da carta por 3 segundos sem falar — quem quiser ler volta. Outra opção: terminar com <em>"e o pior é que custou menos que um café"</em> — essa frase cria curiosidade sobre o preço e leva ao próximo vídeo (Vídeo 5).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VÍDEO 3 -->
+  <div class="card" id="v3">
+    <div class="card-header">
+      <div class="card-number">03</div>
+      <div class="card-title-wrap">
+        <div class="label">Formato · Identificação com dor</div>
+        <h2>"Pra quem não sabe o que escrever"</h2>
+        <div class="subtitle">Câmera direta · Tom confessional · Alta identificação</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-hook">🎣</div>
+          <h3>Hook — primeiros 3 segundos</h3>
+        </div>
+        <div class="hook-box">
+          <div class="hook-text">"Se você é péssimo em escrever cartas, esse vídeo é pra você."</div>
+          <div class="hook-note">📸 Câmera frontal, tom direto, quase sussurrado. Funciona muito bem olhando diretamente para a câmera.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-thumb">🖼️</div>
+          <h3>Thumbnail ideal</h3>
+        </div>
+        <div class="thumb-box">
+          <div class="thumb-visual">😅</div>
+          <div class="thumb-desc">
+            <strong>Composição</strong>
+            Ela olhando pra câmera com expressão de cumplicidade/alívio. Texto: <em>"pra quem trava na hora de escrever 😭"</em>. Fundo neutro funciona melhor aqui — não compete com a emoção do rosto.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-script">🎬</div>
+          <h3>Roteiro</h3>
+        </div>
+        <div class="script-steps">
+          <div class="script-step">
+            <div class="step-time"><span class="time">0s – 3s</span></div>
+            <div class="step-content">
+              <div class="action">Hook falado</div>
+              <p><span class="quote">"Se você é péssimo em escrever cartas, esse vídeo é pra você."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">3s – 12s</span></div>
+            <div class="step-content">
+              <div class="action">Construção da dor</div>
+              <p><span class="quote">"Dia dos Namorados tá chegando, você quer escrever algo bonito, mas na hora que abre o bloco de notas… trava tudo."</span> Tom leve, bem-humorado — não dramático.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">12s – 25s</span></div>
+            <div class="step-content">
+              <div class="action">Solução + demo rápida</div>
+              <p>Mostra o celular com a plataforma aberta: <span class="quote">"Você coloca o nome, alguns detalhes que só vocês dois sabem, e em segundos você tem uma carta que parece que você escreveu a vida toda."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">25s – 35s</span></div>
+            <div class="step-content">
+              <div class="action">Prova + CTA</div>
+              <p>Lê um trecho da carta. <span class="quote">"Olha isso. Você conseguiria escrever assim? Eu não. Link na bio."</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-loop">🔁</div>
+          <h3>Loop de retenção</h3>
+        </div>
+        <div class="loop-box">
+          <p>Terminar com a pergunta: <em>"Você escreve cartas pro seu parceiro ou também trava?"</em> — comentários dividem opiniões, o que aumenta engajamento. Quem responde "também trava" está se identificando publicamente com o problema que o produto resolve.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VÍDEO 4 -->
+  <div class="card" id="v4">
+    <div class="card-header">
+      <div class="card-number">04</div>
+      <div class="card-title-wrap">
+        <div class="label">Formato · Comparação Visual</div>
+        <h2>"Antes e depois — carta comum vs. carta personalizada"</h2>
+        <div class="subtitle">Contraste visual forte · Posicionamento claro</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-hook">🎣</div>
+          <h3>Hook — primeiros 3 segundos</h3>
+        </div>
+        <div class="hook-box">
+          <div class="hook-text">"Essa é a diferença entre uma carta comum e uma carta que vai fazer chorar."</div>
+          <div class="hook-note">📸 Corte direto para a tela dividida ou dois papéis/telas lado a lado. Não apareça no frame ainda.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-thumb">🖼️</div>
+          <h3>Thumbnail ideal</h3>
+        </div>
+        <div class="thumb-box">
+          <div class="thumb-visual">↔️</div>
+          <div class="thumb-desc">
+            <strong>Composição</strong>
+            Tela dividida ao meio: lado esquerdo com texto genérico em fundo branco simples (tom cinza), lado direito com a carta Carta Surpresa em fundo rosado, fonte elegante. Texto no centro: <em>"qual você receberia?"</em>. O contraste visual precisa ser imediato.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-script">🎬</div>
+          <h3>Roteiro</h3>
+        </div>
+        <div class="script-steps">
+          <div class="script-step">
+            <div class="step-time"><span class="time">0s – 3s</span></div>
+            <div class="step-content">
+              <div class="action">Hook + visual imediato</div>
+              <p><span class="quote">"Essa é a diferença entre uma carta comum e uma carta que vai fazer chorar."</span> Tela já mostrando o contraste.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">3s – 12s</span></div>
+            <div class="step-content">
+              <div class="action">Lado esquerdo — carta genérica</div>
+              <p>Mostra e lê com voz monótona: <span class="quote">"Feliz Dia dos Namorados. Você é muito especial pra mim. Te amo muito."</span> Expressão de "que isso".</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">12s – 28s</span></div>
+            <div class="step-content">
+              <div class="action">Lado direito — carta personalizada</div>
+              <p>Troca completamente o tom. Lê com emoção genuína um trecho da carta gerada com detalhes reais do casal.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">28s – 38s</span></div>
+            <div class="step-content">
+              <div class="action">Virada + CTA</div>
+              <p><span class="quote">"A diferença? Cinco minutos e os detalhes certos. Link na bio — Carta Surpresa."</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-note">
+        <div class="cn-label">📍 Posicionamento da Comparação</div>
+        <p>O contraste deve aparecer logo nos primeiros 3 segundos já na thumbnail e no início do vídeo — não guarde para o meio. A decisão de continuar assistindo acontece nos primeiros 2 segundos. Mostre os dois lados simultaneamente na tela antes de desenvolver cada um.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-loop">🔁</div>
+          <h3>Loop de retenção</h3>
+        </div>
+        <div class="loop-box">
+          <p>No final, volte para a tela dividida e pergunte: <em>"Qual você mandaria?"</em> — a resposta óbvia nos comentários ("a segunda") é exatamente o engajamento que você quer. Quem não respondeu vai rever o vídeo pra decidir.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VÍDEO 5 -->
+  <div class="card" id="v5">
+    <div class="card-header">
+      <div class="card-number">05</div>
+      <div class="card-title-wrap">
+        <div class="label">Formato · Comparação de Valor</div>
+        <h2>"Quanto custa uma carta que vai durar pra sempre?"</h2>
+        <div class="subtitle">Âncora de preço · Posicionamento de valor</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-hook">🎣</div>
+          <h3>Hook — primeiros 3 segundos</h3>
+        </div>
+        <div class="hook-box">
+          <div class="hook-text">"Quanto você gasta no Dia dos Namorados? Porque existe algo que custa menos que um café e vai durar pra sempre."</div>
+          <div class="hook-note">📸 Câmera frontal, tom curioso. Pode segurar o celular mostrando o app enquanto fala.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-thumb">🖼️</div>
+          <h3>Thumbnail ideal</h3>
+        </div>
+        <div class="thumb-box">
+          <div class="thumb-visual">💰</div>
+          <div class="thumb-desc">
+            <strong>Composição</strong>
+            Lista visual rápida com valores riscados (jantar: R$200, buquê: R$80, perfume: R$150) ao lado do produto com o preço real. Texto em destaque: <em>"menos que um café ☕"</em>. Fundo claro, contraste alto. Pode ser uma sobreposição na tela do produto.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-script">🎬</div>
+          <h3>Roteiro</h3>
+        </div>
+        <div class="script-steps">
+          <div class="script-step">
+            <div class="step-time"><span class="time">0s – 3s</span></div>
+            <div class="step-content">
+              <div class="action">Hook falado</div>
+              <p><span class="quote">"Quanto você gasta no Dia dos Namorados? Porque existe algo que custa menos que um café e vai durar pra sempre."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">3s – 15s</span></div>
+            <div class="step-content">
+              <div class="action">Comparação de preços</div>
+              <p>Mostra na tela (texto animado ou escrito à mão): Jantar → R$200. Buquê → R$80. Perfume → R$150. <span class="quote">"E nenhum deles fica. Jantar acaba, flores murcham, perfume evapora."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">15s – 28s</span></div>
+            <div class="step-content">
+              <div class="action">Revelação do produto</div>
+              <p><span class="quote">"Uma carta personalizada fica pra sempre. E com o Carta Surpresa, custa menos que qualquer um desses."</span> Mostra o produto, lê um trecho da carta.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">28s – 38s</span></div>
+            <div class="step-content">
+              <div class="action">CTA</div>
+              <p><span class="quote">"Link na bio. Você vai arrepender de não ter descoberto antes."</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-note">
+        <div class="cn-label">📍 Posicionamento da Comparação de Preços</div>
+        <p>A lista de preços dos concorrentes deve aparecer entre 3s e 15s — cedo o suficiente para criar ancoragem antes de revelar o preço do produto. Não revele o preço do Carta Surpresa antes de mostrar os comparativos. A sequência correta é: âncora alta → valor emocional → preço baixo. A surpresa do preço final é o que gera compartilhamento.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-loop">🔁</div>
+          <h3>Loop de retenção</h3>
+        </div>
+        <div class="loop-box">
+          <p>Termine mostrando o preço na tela por 2 segundos em silêncio. O silêncio estratégico após revelar um preço surpreendentemente baixo gera replay — as pessoas querem confirmar se leram certo. Adicione texto: <em>"sim, é isso mesmo 💌"</em></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VÍDEO 6 -->
+  <div class="card" id="v6">
+    <div class="card-header">
+      <div class="card-number">06</div>
+      <div class="card-title-wrap">
+        <div class="label">Formato · Stitch Bait · Geração de UGC</div>
+        <h2>"Comenta seu nome e o do seu parceiro"</h2>
+        <div class="subtitle">Comentários programados · Gerador de UGC · Alta viralidade</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-hook">🎣</div>
+          <h3>Hook — primeiros 3 segundos</h3>
+        </div>
+        <div class="hook-box">
+          <div class="hook-text">"Vou gerar uma carta ao vivo pra vocês. Comenta o seu nome e o do seu parceiro nos próximos 10 segundos."</div>
+          <div class="hook-note">📸 Câmera frontal, tom animado e urgente. O "10 segundos" cria FOMO imediato e faz a pessoa assistir até o fim esperando ser escolhida.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-thumb">🖼️</div>
+          <h3>Thumbnail ideal</h3>
+        </div>
+        <div class="thumb-box">
+          <div class="thumb-visual">✍️</div>
+          <div class="thumb-desc">
+            <strong>Composição</strong>
+            Ela com o celular na mão, dedo apontando para a câmera. Texto: <em>"comenta seu nome 👇"</em>. Fundo com leve bokeh rosado. O gesto de "apontar para o espectador" é um dos elementos com maior CTR em thumbnails de TikTok.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-script">🎬</div>
+          <h3>Roteiro</h3>
+        </div>
+        <div class="script-steps">
+          <div class="script-step">
+            <div class="step-time"><span class="time">0s – 3s</span></div>
+            <div class="step-content">
+              <div class="action">Hook + chamada imediata</div>
+              <p><span class="quote">"Vou gerar uma carta ao vivo pra vocês. Comenta o seu nome e o do seu parceiro nos próximos 10 segundos."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">3s – 15s</span></div>
+            <div class="step-content">
+              <div class="action">Demo rápida do produto</div>
+              <p>Mostra o app enquanto espera comentários. <span class="quote">"Olha que fácil — você coloca o nome, alguns detalhes, e pronto."</span></p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">15s – 28s</span></div>
+            <div class="step-content">
+              <div class="action">Leitura de carta ao vivo</div>
+              <p>Usa um comentário real (ou preparado previamente) e gera a carta na frente da câmera. Lê em voz alta com emoção.</p>
+            </div>
+          </div>
+          <div class="script-step">
+            <div class="step-time"><span class="time">28s – 35s</span></div>
+            <div class="step-content">
+              <div class="action">CTA duplo</div>
+              <p><span class="quote">"Quem quiser a sua, link na bio. E segue aqui que toda semana eu faço mais."</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-loop">🔁</div>
+          <h3>Loop de retenção</h3>
+        </div>
+        <div class="loop-box">
+          <p>Esse formato tem loop natural: quem comentou vai voltar várias vezes pra ver se foi escolhido. Poste a resposta às cartas geradas como vídeos de resposta ao comentário — isso cria uma série de conteúdo orgânica e notifica quem comentou, trazendo eles de volta ao perfil.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-icon icon-tip">💡</div>
+          <h3>Dica estratégica</h3>
+        </div>
+        <div class="tip-box">
+          <strong>Esse formato é o maior gerador de UGC da lista.</strong> Quando você responde comentários com vídeos gerando cartas ao vivo, as pessoas marcam seus parceiros, compartilham, e eventualmente vão ao produto para gerar a própria carta. Reserve pelo menos 3 comentários para responder como vídeo na semana antes do dia 12.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Carta Surpresa</strong> · Roteiros de Conteúdo · Dia dos Namorados 2026<br>
+  <span style="opacity:0.5;font-size:11px;margin-top:6px;display:block">cartasurpresa.com.br</span>
+</footer>
+
+</body>
+</html>
